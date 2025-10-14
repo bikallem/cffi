@@ -1,0 +1,13 @@
+{
+  "name": "bikallem/cffi",
+  "version": "0.1.0",
+  "readme": "README.mbt.md",
+  "repository": "github.com/bikallem/cffi",
+  "license": "Apache-2.0",
+  "keywords": [
+    "c",
+    "ffi",
+    "c ffi"
+  ],
+  "description": "Moonbit C FFI helper utility"
+}
