@@ -35,7 +35,7 @@ moonbit_cffi_test_pointer(void)
 
 MOONBIT_FFI_EXPORT
 void
-moonbit_cffi_memcpy_to(const void* src, moonbit_bytes_t dest, int32_t n)
+moonbit_cffi_memcpy(const void* src, moonbit_bytes_t dest, int32_t n)
 {
   if (src == NULL || dest == NULL || n <= 0) {
     return;

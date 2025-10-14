@@ -12,7 +12,7 @@ fn main {
     for _ in 0..<10_000 {
       let n = p.length()
       let b = Bytes::make(n, b'0')
-      p.memcpy_to(b, n)
+      p.memcpy(b, n)
       guard b == b"hello" else { fail("failed") }
     }
   } catch {

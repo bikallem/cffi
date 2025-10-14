@@ -25,7 +25,7 @@ test "Pointer::length" {
 test "Pointer::memcpy_to copies data to dest" {
   let dest : Bytes = Bytes::make(5, b'0')
   let p = test_pointer()
-  p.memcpy_to(dest, dest.length())
+  p.memcpy(dest, dest.length())
   inspect(
     dest,
     content=(
@@ -39,7 +39,7 @@ test "Pointer::memcpy handles null or zero-length safely" {
   // null source
   let dest1 = Bytes::make(5, b'0')
   let pnull : Pointer = Pointer::null()
-  pnull.memcpy_to(dest1, 0)
+  pnull.memcpy(dest1, 0)
   inspect(
     dest1,
     content=(
@@ -50,7 +50,7 @@ test "Pointer::memcpy handles null or zero-length safely" {
   // zero-length dest - create zero length Bytes
   let dest2 = Bytes::make(0, b'0')
   let src : Pointer = test_pointer()
-  src.memcpy_to(dest2, 0)
+  src.memcpy(dest2, 0)
   inspect(
     dest2,
     content=(
