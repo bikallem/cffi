@@ -8,13 +8,13 @@ package "bikallem/cffi"
 // Types and methods
 type Pointer
 fn Pointer::free(Self) -> Unit
+fn[T] Pointer::from_external(T) -> Self
 fn Pointer::is_null(Self) -> Bool
 fn Pointer::length(Self) -> Int
 fn Pointer::memcpy(Self, Bytes, Int) -> Unit
 fn Pointer::null() -> Self
 fn Pointer::to_bytes(Self) -> Bytes
-fn[T] Pointer::unsafe_cast(Self) -> T
-fn[T] Pointer::unsafe_of(T) -> Self
+fn[T] Pointer::to_external(Self) -> T
 
 // Type aliases
 
