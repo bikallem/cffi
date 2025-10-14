@@ -17,7 +17,7 @@ info:
 	NEW_MOON=1 moon info
 
 asan: clean
-	MOON_CC="clang -g -O1 -fsanitize=address -fno-omit-frame-pointer" NEW_MOON=1 moon build
+	MOON_CC="clang -g -O1 -fsanitize=address -fno-omit-frame-pointer" moon build
 	ASAN_OPTIONS="detect_leaks=1:log_path=asan.log:atexit=1" ./target/native/release/build/example/main/main.exe
 
 valgrind: clean
