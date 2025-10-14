@@ -1,4 +1,5 @@
 #include "moonbit.h"
+#include <stdlib.h>
 #include <string.h>
 
 MOONBIT_FFI_EXPORT
@@ -25,12 +26,13 @@ moonbit_cffi_null(void)
   return NULL;
 }
 
-// Test function that returns a pointer to a string "hello"
 MOONBIT_FFI_EXPORT
-const void*
-moonbit_cffi_test_pointer(void)
+void
+moonbit_cffi_free(void* ptr)
 {
-  return "hello";
+  if (ptr != NULL) {
+    free(ptr);
+  }
 }
 
 MOONBIT_FFI_EXPORT
@@ -46,4 +48,18 @@ moonbit_cffi_memcpy(const void* src, moonbit_bytes_t dest, int32_t n)
     to_copy = src_len;
   }
   memcpy((void*)dest, (const char*)src, to_copy);
+}
+
+// Test function that returns a pointer to a string "hello"
+MOONBIT_FFI_EXPORT
+const void*
+moonbit_cffi_test_pointer(void)
+{
+  const char* s = "hello";
+  size_t len = strlen(s);
+  char* buf = (char*)malloc(len + 1);
+  if (buf == NULL)
+    return NULL;
+  memcpy(buf, s, len + 1); // copy includeing NUL
+  return (const void*)buf;
 }

@@ -21,6 +21,9 @@ pub extern "c" fn Pointer::length(self : Pointer) -> Int = "moonbit_cffi_length"
 pub extern "c" fn Pointer::null() -> Pointer = "moonbit_cffi_null"
 
 ///|
+pub extern "c" fn Pointer::free(self : Pointer) -> Unit = "moonbit_cffi_free"
+
+///|
 /// Copies `n` bytes from the memory location pointed to by this `Pointer` to the given `Bytes` object `dest`.
 /// If the pointer is null, or if `n` is zero or negative, the function does nothing.
 /// 
