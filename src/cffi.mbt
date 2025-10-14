@@ -10,7 +10,12 @@ pub extern "c" fn Pointer::is_null(self : Pointer) -> Bool = "moonbit_cffi_is_nu
 ///|
 /// Casts this `Pointer` to the specified type `T`. 
 /// Ensure that `T` is an external type compatible with the underlying C pointer type.
-pub fn[T] Pointer::cast(self : Pointer) -> T = "%identity"
+pub fn[T] Pointer::unsafe_cast(self : Pointer) -> T = "%identity"
+
+///|
+/// Converts a value of type `T` to a `Pointer`.
+/// Ensure that `T` is an external type compatible with the underlying C pointer type.
+pub fn[T] Pointer::unsafe_of(t : T) -> Pointer = "%identity"
 
 ///|
 /// Returns the length of the memory block pointed to by this `Pointer` in bytes.
