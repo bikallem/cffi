@@ -25,9 +25,25 @@ moonbit_cffi_null(void)
   return NULL;
 }
 
+// Test function that returns a pointer to a string "hello"
 MOONBIT_FFI_EXPORT
 const void*
-moonbit_cffi_test_length(void)
+moonbit_cffi_test_pointer(void)
 {
   return "hello";
+}
+
+MOONBIT_FFI_EXPORT
+void
+moonbit_cffi_memcpy_to(const void* src, moonbit_bytes_t dest, int32_t n)
+{
+  if (src == NULL || dest == NULL || n <= 0) {
+    return;
+  }
+  size_t to_copy = (size_t)n;
+  size_t src_len = strlen((const char*)src);
+  if (src_len < n) {
+    to_copy = src_len;
+  }
+  memcpy((void*)dest, (const char*)src, to_copy);
 }
