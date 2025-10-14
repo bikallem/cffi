@@ -8,6 +8,7 @@ package "bikallem/cffi"
 // Types and methods
 type Pointer
 fn[T] Pointer::cast(Self) -> T
+fn Pointer::free(Self) -> Unit
 fn Pointer::is_null(Self) -> Bool
 fn Pointer::length(Self) -> Int
 fn Pointer::memcpy(Self, Bytes, Int) -> Unit
