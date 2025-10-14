@@ -9,5 +9,7 @@
     "ffi",
     "c ffi"
   ],
-  "description": "Moonbit C FFI helper utility"
+  "description": "Moonbit C FFI helper utility",
+  "preferred-target": "native",
+  "source": "src"
 }
