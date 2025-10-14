@@ -58,3 +58,23 @@ test "Pointer::memcpy handles null or zero-length safely" {
     ),
   )
 }
+
+///|
+test "Pointer::to_bytes converts pointer contents" {
+  let p : Pointer = test_pointer()
+  let bytes = p.to_bytes()
+  inspect(
+    bytes,
+    content=(
+      #|b"hello"
+    ),
+  )
+  let p_null : Pointer = Pointer::null()
+  let empty = p_null.to_bytes()
+  inspect(
+    empty,
+    content=(
+      #|b""
+    ),
+  )
+}

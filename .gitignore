@@ -5,3 +5,4 @@ target/
 .direnv
 asan.log*
 valgrind.log*
+.todo

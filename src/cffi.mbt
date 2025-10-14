@@ -34,3 +34,13 @@ pub extern "c" fn Pointer::memcpy(
   dest : Bytes,
   n : Int,
 ) -> Unit = "moonbit_cffi_memcpy"
+
+///|
+/// Converts the memory block pointed to by this `Pointer` into a `Bytes` object.
+/// If the pointer is null, returns an empty `Bytes` object.
+pub fn Pointer::to_bytes(self : Pointer) -> Bytes {
+  let n = self.length()
+  let b = Bytes::make(n, b'0')
+  self.memcpy(b, n)
+  b
+}
