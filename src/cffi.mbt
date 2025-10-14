@@ -8,7 +8,8 @@ type Pointer
 pub extern "c" fn Pointer::is_null(self : Pointer) -> Bool = "moonbit_cffi_is_null"
 
 ///|
-/// Casts this `Pointer` to the specified type `T`.
+/// Casts this `Pointer` to the specified type `T`. 
+/// Ensure that `T` is an external type compatible with the underlying C pointer type.
 pub fn[T] Pointer::cast(self : Pointer) -> T = "%identity"
 
 ///|
