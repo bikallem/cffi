@@ -10,6 +10,7 @@ type Pointer
 fn[T] Pointer::cast(Self) -> T
 fn Pointer::is_null(Self) -> Bool
 fn Pointer::length(Self) -> Int
+fn Pointer::null() -> Self
 
 // Type aliases
 

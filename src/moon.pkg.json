@@ -3,5 +3,5 @@
         "native",
         "llvm"
     ],
-    "native-stub": ["cffi.c"]
+    "native-stub": ["cffi.c"]    
 }

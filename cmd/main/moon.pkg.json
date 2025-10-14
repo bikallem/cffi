@@ -5,5 +5,9 @@
       "path": "bikallem/cffi",
       "alias": "lib"
     }
+  ],
+  "supported-targets": [
+    "native",
+    "llvm"
   ]
 }

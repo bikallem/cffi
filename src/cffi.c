@@ -13,7 +13,21 @@ int32_t
 moonbit_cffi_length(const void* ptr)
 {
   if (ptr == NULL) {
-    return -1;
+    return 0;
   }
   return (int32_t)strlen((const char*)ptr);
+}
+
+MOONBIT_FFI_EXPORT
+const void*
+moonbit_cffi_null(void)
+{
+  return NULL;
+}
+
+MOONBIT_FFI_EXPORT
+const void*
+moonbit_cffi_test_length(void)
+{
+  return "hello";
 }
