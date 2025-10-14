@@ -16,4 +16,8 @@ check:
 info:
 	moon info
 
-.PHONY: all build fmt clean check info
+asan: clean
+	MOON_CC="clang -g -O1 -fsanitize=address -fno-omit-frame-pointer" moon build
+	ASAN_OPTIONS="verbosity=1:detect_leaks=1:log_path=asan.log:atexit=1" ./target/native/release/build/example/main/main.exe
+
+.PHONY: all build fmt clean check info asan

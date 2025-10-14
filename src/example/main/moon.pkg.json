@@ -2,12 +2,14 @@
   "is-main": true,
   "import": [
     {
-      "path": "bikallem/cffi",
-      "alias": "lib"
+      "path": "bikallem/cffi"
     }
   ],
   "supported-targets": [
     "native",
     "llvm"
+  ],
+  "native-stub": [
+    "ffi.c"
   ]
 }

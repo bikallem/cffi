@@ -40,15 +40,21 @@ test "Pointer::memcpy handles null or zero-length safely" {
   let dest1 = Bytes::make(5, b'0')
   let pnull : Pointer = Pointer::null()
   pnull.memcpy_to(dest1, 0)
-  inspect(dest1, content=(
-    #|b"00000"
-  ))
+  inspect(
+    dest1,
+    content=(
+      #|b"00000"
+    ),
+  )
 
   // zero-length dest - create zero length Bytes
   let dest2 = Bytes::make(0, b'0')
   let src : Pointer = test_pointer()
-  src.memcpy_to(dest2, 0)  
-  inspect(dest2, content=(
-    #|b""
-  ))
+  src.memcpy_to(dest2, 0)
+  inspect(
+    dest2,
+    content=(
+      #|b""
+    ),
+  )
 }
