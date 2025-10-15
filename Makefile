@@ -22,6 +22,11 @@ asan: clean
 
 valgrind: clean
 	NEW_MOON=1 moon build
-	valgrind --leak-check=full --show-leak-kinds=all --track-origins=yes --log-file=valgrind.log ./target/native/release/build/example/main/main.exe
+	valgrind --leak-check=full \
+	--show-leak-kinds=all \
+	--track-origins=yes \
+	--log-file=valgrind.log.%n \
+	--track-origins=yes \
+	./target/native/release/build/example/main/main.exe
 
 .PHONY: all build fmt clean check info asan
