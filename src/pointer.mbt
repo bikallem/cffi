@@ -19,6 +19,11 @@ pub fn[T] Pointer::to_external(self : Pointer) -> T = "%identity"
 /// this function will introduce memory leak.
 pub fn[T] Pointer::from_external(t : T) -> Pointer = "%identity"
 
+// ///|
+// /// Returns a `Pointer` that points to the data contained in the given `Bytes` object.
+// #borrow(bytes)
+// pub extern "c" fn Pointer::bytes_pointer(bytes : Bytes) -> Pointer = "moonbit_cffi_bytes_pointer"
+
 ///|
 /// Returns the length of the memory block pointed to by this `Pointer` in bytes.
 /// If the pointer is null, the length is zero.
@@ -29,6 +34,8 @@ pub extern "c" fn Pointer::length(self : Pointer) -> Int = "moonbit_cffi_length"
 pub extern "c" fn Pointer::null() -> Pointer = "moonbit_cffi_null"
 
 ///|
+/// Frees the memory allocated for this `Pointer`. 
+/// After calling this function, the `Pointer` should not be used again.
 pub extern "c" fn Pointer::free(self : Pointer) -> Unit = "moonbit_cffi_free"
 
 ///|

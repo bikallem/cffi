@@ -50,7 +50,7 @@ moonbit_cffi_memcpy(const void* src, moonbit_bytes_t dest, int32_t n)
   memcpy((void*)dest, (const char*)src, to_copy);
 }
 
-// Test function that returns a pointer to a string "hello"
+// NOTE: this is used for testing only
 MOONBIT_FFI_EXPORT
 const void*
 moonbit_cffi_test_pointer(void)

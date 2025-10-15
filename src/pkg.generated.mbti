@@ -7,6 +7,7 @@ package "bikallem/cffi"
 
 // Types and methods
 type Pointer
+fn Pointer::bytes_pointer(Bytes) -> Self
 fn Pointer::free(Self) -> Unit
 fn[T] Pointer::from_external(T) -> Self
 fn Pointer::is_null(Self) -> Bool

@@ -1,5 +1,5 @@
 ///|
-typealias @cffi.Pointer
+using @cffi {type Pointer}
 
 ///|
 extern "c" fn test_pointer() -> Pointer = "moonbit_main_hello_pointer"
@@ -14,7 +14,7 @@ fn main {
       let n = p.length()
       let b = Bytes::make(n, b'0')
       p.memcpy(b, n)
-      guard b == b"hello" else { fail("failed") }
+      guard b == b"hello" else { fail("memcpy() failed") }
     }
   } catch {
     e => println("failed: \{e}")
