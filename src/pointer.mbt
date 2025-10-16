@@ -14,6 +14,15 @@ pub extern "c" fn Pointer::is_null(self : Pointer) -> Bool = "moonbit_cffi_is_nu
 pub fn[T] Pointer::to_external(self : Pointer) -> T = "%identity"
 
 ///|
+pub fn[T] Pointer::to(self : Pointer) -> T? {
+  if self.is_null() {
+    None
+  } else {
+    Some(self.to_external())
+  }
+}
+
+///|
 /// Converts a value of type `T` to a `Pointer`.
 /// NOTE: Ensure that `T` is an external type compatible with the underlying C pointer type. Otherwise
 /// this function will introduce memory leak.
