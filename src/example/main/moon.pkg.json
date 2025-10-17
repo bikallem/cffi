@@ -11,5 +11,10 @@
   ],
   "native-stub": [
     "ffi.c"
-  ]
+  ],
+  // "link": {
+  //   "native": {
+  //     "cc-flags": "-fsanitize=address"
+  //   }
+  // }
 }

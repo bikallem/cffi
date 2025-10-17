@@ -14,8 +14,8 @@ fn Pointer::length(Self) -> Int
 fn Pointer::memcpy(Self, Bytes, Int) -> Unit
 fn Pointer::null() -> Self
 fn Pointer::to_bytes(Self) -> Bytes
-fn[T : External] Pointer::to_external(Self) -> T
-fn[T : External] Pointer::to_option(Self) -> T?
+fn[T] Pointer::to_external(Self) -> T
+fn[T] Pointer::to_option(Self) -> T?
 impl External for Pointer
 
 // Type aliases

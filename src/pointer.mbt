@@ -14,10 +14,10 @@ pub extern "c" fn Pointer::is_null(self : Pointer) -> Bool = "moonbit_cffi_is_nu
 /// Casts this `Pointer` to the specified external type `T`. 
 /// NOTE: Ensure that `T` is an external type compatible with the underlying C pointer type. Otherwise
 /// this function will introduce memory leak.
-pub fn[T : External] Pointer::to_external(self : Pointer) -> T = "%identity"
+pub fn[T] Pointer::to_external(self : Pointer) -> T = "%identity"
 
 ///|
-pub fn[T : External] Pointer::to_option(self : Pointer) -> T? {
+pub fn[T] Pointer::to_option(self : Pointer) -> T? {
   if self.is_null() {
     None
   } else {
