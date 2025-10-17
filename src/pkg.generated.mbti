@@ -8,16 +8,19 @@ package "bikallem/cffi"
 // Types and methods
 type Pointer
 fn Pointer::free(Self) -> Unit
-fn[T] Pointer::from_external(T) -> Self
+fn[T : External] Pointer::from_external(T) -> Self
 fn Pointer::is_null(Self) -> Bool
 fn Pointer::length(Self) -> Int
 fn Pointer::memcpy(Self, Bytes, Int) -> Unit
 fn Pointer::null() -> Self
-fn[T] Pointer::to(Self) -> T?
+fn[T : External] Pointer::to(Self) -> T?
 fn Pointer::to_bytes(Self) -> Bytes
-fn[T] Pointer::to_external(Self) -> T
+fn[T : External] Pointer::to_external(Self) -> T
+impl External for Pointer
 
 // Type aliases
 
 // Traits
+pub trait External {
+}
 

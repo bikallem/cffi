@@ -4,6 +4,9 @@
 type Pointer
 
 ///|
+pub impl External for Pointer
+
+///|
 /// Returns true if this `Pointer` is null, false otherwise.
 pub extern "c" fn Pointer::is_null(self : Pointer) -> Bool = "moonbit_cffi_is_null"
 
@@ -11,10 +14,10 @@ pub extern "c" fn Pointer::is_null(self : Pointer) -> Bool = "moonbit_cffi_is_nu
 /// Casts this `Pointer` to the specified external type `T`. 
 /// NOTE: Ensure that `T` is an external type compatible with the underlying C pointer type. Otherwise
 /// this function will introduce memory leak.
-pub fn[T] Pointer::to_external(self : Pointer) -> T = "%identity"
+pub fn[T : External] Pointer::to_external(self : Pointer) -> T = "%identity"
 
 ///|
-pub fn[T] Pointer::to(self : Pointer) -> T? {
+pub fn[T : External] Pointer::to(self : Pointer) -> T? {
   if self.is_null() {
     None
   } else {
@@ -26,7 +29,7 @@ pub fn[T] Pointer::to(self : Pointer) -> T? {
 /// Converts a value of type `T` to a `Pointer`.
 /// NOTE: Ensure that `T` is an external type compatible with the underlying C pointer type. Otherwise
 /// this function will introduce memory leak.
-pub fn[T] Pointer::from_external(t : T) -> Pointer = "%identity"
+pub fn[T : External] Pointer::from_external(t : T) -> Pointer = "%identity"
 
 ///|
 /// Returns the length of the memory block pointed to by this `Pointer` in bytes.
