@@ -17,7 +17,7 @@ pub extern "c" fn Pointer::is_null(self : Pointer) -> Bool = "moonbit_cffi_is_nu
 pub fn[T : External] Pointer::to_external(self : Pointer) -> T = "%identity"
 
 ///|
-pub fn[T : External] Pointer::to(self : Pointer) -> T? {
+pub fn[T : External] Pointer::to_option(self : Pointer) -> T? {
   if self.is_null() {
     None
   } else {
